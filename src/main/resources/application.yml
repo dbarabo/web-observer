@@ -1,0 +1,29 @@
+server:
+  port: 8082
+# App Properties
+barabo:
+  jwt:
+    jwtSecret: '============barabo========Spring=observer=web=============='
+    jwtExpirationMs: 86400000
+#log spring security
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+#spring
+spring:
+  codec:
+    log-request-details: true
+  mvc:
+    log-request-details: true
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:8082"
+            allowedHeaders: "*"
+            allowedMethods: "*"
