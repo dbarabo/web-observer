@@ -119,35 +119,4 @@ class SecurityConfig(var ldapCheckAuth: LdapCheckAuth, var ldapUserDetailsServic
 
         return http.build()
     }
-
-//    @Bean
-//    @Throws(Exception::class)
-//    fun securityFilterChain(http: HttpSecurity, authenticationManager: AuthenticationManager): SecurityFilterChain? {
-//
-//        http.csrf().disable()
-//        http.headers().frameOptions().disable()//для пост была выключена
-//
-//        http.logout().disable()
-//
-//        //http.cors().and().csrf().disable() //для пост была выключена
-//
-//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //STATELESS
-//
-//
-//        http
-//            .cors().and() // новое - без него работало
-//            .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) } //STATELESS
-//            .authorizeHttpRequests()
-//            .antMatchers("/auth/**").permitAll()
-//            .anyRequest().authenticated()
-//
-//        http.authenticationProvider(authenticationProvider())
-//
-//        http.addFilterBefore(authenticationJwtTokenFilter(),
-//            UsernamePasswordAuthenticationFilter::class.java)
-//
-//        http.headers().cacheControl()
-//
-//        return http.build()
-//    }
 }
